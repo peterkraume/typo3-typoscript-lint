@@ -16,9 +16,6 @@ class NestingConsistencySniff extends AbstractSyntaxTreeSniff
         }
     }
 
-    /**
-     * @return SniffVisitor
-     */
     protected function buildVisitor(): SniffVisitor
     {
         return new NestingConsistencyVisitor($this->commonPathPrefixThreshold);

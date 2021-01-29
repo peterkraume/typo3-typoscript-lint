@@ -12,18 +12,12 @@ class OperatorWhitespaceSniff implements TokenStreamSniffInterface
 {
     use TokenInspections;
 
-    /**
-     * @param array $parameters
-     */
     public function __construct(array $parameters)
     {
     }
 
     /**
      * @param TokenInterface[]    $tokens
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $tokens, File $file, LinterConfiguration $configuration): void
     {

@@ -65,8 +65,6 @@ class LintCommand extends Command
 
     /**
      * Configures this command.
-     *
-     * @return void
      */
     protected function configure(): void
     {
@@ -82,7 +80,6 @@ class LintCommand extends Command
     }
 
     /**
-     * @param string $fileName
      * @return string[]
      */
     private function getPossibleConfigFiles(string $fileName): array
@@ -99,7 +96,6 @@ class LintCommand extends Command
      *
      * @param InputInterface  $input  Input options.
      * @param OutputInterface $output Output stream.
-     * @return int
      *
      * @throws BadOutputFileException
      */

@@ -5,9 +5,6 @@ use Helmich\TypoScriptLint\Linter\Sniff\Visitor\ConfigNoCacheVisitor;
 use Helmich\TypoScriptLint\Linter\Sniff\Visitor\SniffVisitor;
 
 class ConfigNoCacheSniff extends AbstractSyntaxTreeSniff {
-    /**
-     * @return SniffVisitor
-     */
     protected function buildVisitor(): SniffVisitor
     {
         return new ConfigNoCacheVisitor();

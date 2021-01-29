@@ -42,7 +42,6 @@ class File
      * Adds a new issue for this file.
      *
      * @param Issue $issue The new issue
-     * @return void
      */
     public function addIssue(Issue $issue): void
     {

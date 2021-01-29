@@ -87,7 +87,7 @@ class NestingConsistencyVisitor implements SniffVisitor
                     foreach ($knownObjectPaths as $key => $line) {
                         $key = "" . $key;
 
-                        if ($key !== $statement->object->relativeName && strpos($key, $possibleObjectPath . '.') === 0) {
+                        if ($key !== $statement->object->relativeName && str_starts_with($key, $possibleObjectPath . '.')) {
                             if (!isset($assignmentsWithCommonPrefix[$key])) {
                                 $assignmentsWithCommonPrefix[$key] = [];
                             }
@@ -125,7 +125,6 @@ class NestingConsistencyVisitor implements SniffVisitor
     }
 
     /**
-     * @param string $objectPath
      * @return string[]
      */
     private function getParentObjectPathsForObjectPath(string $objectPath): array

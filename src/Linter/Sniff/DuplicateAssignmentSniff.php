@@ -6,9 +6,6 @@ use Helmich\TypoScriptLint\Linter\Sniff\Visitor\SniffVisitor;
 
 class DuplicateAssignmentSniff extends AbstractSyntaxTreeSniff
 {
-    /**
-     * @return SniffVisitor
-     */
     protected function buildVisitor(): SniffVisitor
     {
         return new DuplicateAssignmentVisitor();

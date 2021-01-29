@@ -38,7 +38,6 @@ class CheckstyleReportPrinter implements Printer
      * Writes a report in checkstyle XML format.
      *
      * @param Report $report The report to print.
-     * @return void
      */
     public function writeReport(Report $report): void
     {

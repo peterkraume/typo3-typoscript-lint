@@ -81,7 +81,7 @@ class Finder
         $globbedFileOrDirectoryNames = [];
 
         foreach($fileOrDirectoryNames as $fileOrDirectoryName) {
-            if (strpos($fileOrDirectoryName, "*") !== false) {
+            if (str_contains($fileOrDirectoryName, "*")) {
                 $files = glob($fileOrDirectoryName);
                 if ($files === false) {
                     continue;

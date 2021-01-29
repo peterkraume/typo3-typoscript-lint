@@ -33,7 +33,6 @@ class IndentationSniff implements TokenStreamSniffInterface
     private $insideCondition = false;
 
     /**
-     * @param array $parameters
      * @psalm-param array{useSpaces: ?bool, indentPerLevel: ?int, indentCondition: ?bool} $parameters
      * @psalm-suppress MoreSpecificImplementedParamType
      */
@@ -52,9 +51,6 @@ class IndentationSniff implements TokenStreamSniffInterface
 
     /**
      * @param TokenInterface[]    $tokens
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $tokens, File $file, LinterConfiguration $configuration): void
     {
@@ -101,7 +97,6 @@ class IndentationSniff implements TokenStreamSniffInterface
      * Checks if a stream of tokens is an empty line.
      *
      * @param TokenInterface[] $tokensInLine
-     * @return bool
      */
     private function isEmptyLine(array $tokensInLine): bool
     {

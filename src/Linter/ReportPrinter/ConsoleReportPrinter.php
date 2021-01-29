@@ -35,7 +35,6 @@ class ConsoleReportPrinter implements Printer
      * Writes a report in human-readable table form.
      *
      * @param Report $report The report to print.
-     * @return void
      */
     public function writeReport(Report $report): void
     {

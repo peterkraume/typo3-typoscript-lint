@@ -11,10 +11,8 @@ class SniffLocator
     private $sniffs = null;
 
     /**
-     * @param LinterConfiguration $configuration
      * @return SniffInterface[]
      * @throws Exception
-     *
      * @psalm-return array<int, SniffInterface>
      */
     private function loadSniffs(LinterConfiguration $configuration): array
@@ -42,7 +40,6 @@ class SniffLocator
     }
 
     /**
-     * @param LinterConfiguration $configuration
      * @return TokenStreamSniffInterface[]
      * @throws Exception
      */
@@ -60,7 +57,6 @@ class SniffLocator
     }
 
     /**
-     * @param LinterConfiguration $configuration
      * @return SyntaxTreeSniffInterface[]
      * @throws Exception
      */

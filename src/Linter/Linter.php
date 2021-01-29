@@ -32,13 +32,6 @@ class Linter implements LinterInterface
         $this->sniffLocator = $sniffLocator;
     }
 
-    /**
-     * @param string                $filename
-     * @param Report                $report
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
-     */
     public function lintFile(string $filename, Report $report, LinterConfiguration $configuration, LinterLoggerInterface $logger): File
     {
         $file = new File($filename);
@@ -64,10 +57,6 @@ class Linter implements LinterInterface
 
     /**
      * @param TokenInterface[]      $tokens
-     * @param File                  $file
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
      */
     private function lintTokenStream(
         array $tokens,
@@ -92,10 +81,6 @@ class Linter implements LinterInterface
 
     /**
      * @param Statement[]           $statements
-     * @param File                  $file
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
      */
     private function lintSyntaxTree(
         array $statements,

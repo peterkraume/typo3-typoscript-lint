@@ -46,7 +46,6 @@ class YamlConfigurationLoader extends FileLoader
      *
      * @param mixed  $resource The resource
      * @param string $type     The resource type
-     * @return array
      *
      * @psalm-suppress MethodSignatureMismatch
      */
@@ -58,7 +57,7 @@ class YamlConfigurationLoader extends FileLoader
             $file = $this->filesystem->openFile($path);
 
             return $this->yamlParser->parse($file->getContents());
-        } catch (FileLocatorFileNotFoundException $error) {
+        } catch (FileLocatorFileNotFoundException) {
             return [];
         }
     }
