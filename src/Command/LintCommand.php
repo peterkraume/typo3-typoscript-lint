@@ -31,42 +31,19 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 class LintCommand extends Command
 {
 
-    /** @var LinterInterface */
-    private $linter;
-
-    /** @var ConfigurationLocator */
-    private $linterConfigurationLocator;
-
-    /** @var LinterLoggerBuilder */
-    private $loggerBuilder;
-
-    /** @var Finder */
-    private $finder;
-
-    /** @var EventDispatcherInterface */
-    private $eventDispatcher;
-
     public function __construct(
-        LinterInterface $linter,
-        ConfigurationLocator $configurationLocator,
-        LinterLoggerBuilder $loggerBuilder,
-        Finder $finder,
-        EventDispatcherInterface $eventDispatcher
+        private LinterInterface $linter,
+        private ConfigurationLocator $linterConfigurationLocator,
+        private LinterLoggerBuilder $loggerBuilder,
+        private Finder $finder,
+        private EventDispatcherInterface $eventDispatcher
     )
     {
         parent::__construct();
-
-        $this->linter                     = $linter;
-        $this->linterConfigurationLocator = $configurationLocator;
-        $this->loggerBuilder              = $loggerBuilder;
-        $this->finder                     = $finder;
-        $this->eventDispatcher            = $eventDispatcher;
     }
 
     /**
      * Configures this command.
-     *
-     * @return void
      */
     protected function configure(): void
     {
@@ -82,7 +59,6 @@ class LintCommand extends Command
     }
 
     /**
-     * @param string $fileName
      * @return string[]
      */
     private function getPossibleConfigFiles(string $fileName): array
@@ -99,7 +75,6 @@ class LintCommand extends Command
      *
      * @param InputInterface  $input  Input options.
      * @param OutputInterface $output Output stream.
-     * @return int
      *
      * @throws BadOutputFileException
      */

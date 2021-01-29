@@ -17,22 +17,11 @@ use Symfony\Component\Finder\SplFileInfo as SymfonySplFileInfo;
 class Finder
 {
 
-    /** @var SymfonyFinder */
-    private $finder;
-
-    /** @var Filesystem */
-    private $filesystem;
-
     /**
      * Constructs a new finder instance.
-     *
-     * @param SymfonyFinder $finder     A finder.
-     * @param Filesystem    $filesystem A filesystem interface.
      */
-    public function __construct(SymfonyFinder $finder, Filesystem $filesystem)
+    public function __construct(private SymfonyFinder $finder, private Filesystem $filesystem)
     {
-        $this->finder     = $finder;
-        $this->filesystem = $filesystem;
     }
 
     /**
@@ -81,7 +70,7 @@ class Finder
         $globbedFileOrDirectoryNames = [];
 
         foreach($fileOrDirectoryNames as $fileOrDirectoryName) {
-            if (strpos($fileOrDirectoryName, "*") !== false) {
+            if (str_contains($fileOrDirectoryName, "*")) {
                 $files = glob($fileOrDirectoryName);
                 if ($files === false) {
                     continue;

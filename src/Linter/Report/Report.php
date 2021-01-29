@@ -19,7 +19,6 @@ class Report
      * Adds a sub-report for a specific file.
      *
      * @param File $file The file sub-report.
-     * @return void
      */
     public function addFile(File $file): void
     {

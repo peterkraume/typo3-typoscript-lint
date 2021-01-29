@@ -10,9 +10,6 @@ interface SyntaxTreeSniffInterface extends SniffInterface
 
     /**
      * @param Statement[]         $statements
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $statements, File $file, LinterConfiguration $configuration): void;
 }

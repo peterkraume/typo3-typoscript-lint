@@ -12,20 +12,14 @@ namespace Helmich\TypoScriptLint\Linter\Report;
 class File
 {
 
-    /** @var string */
-    private $filename;
-
     /** @var Issue[] */
     private $issues = [];
 
     /**
      * Constructs a new file report.
-     *
-     * @param string $filename The filename.
      */
-    public function __construct(string $filename)
+    public function __construct(private string $filename)
     {
-        $this->filename = $filename;
     }
 
     /**
@@ -42,7 +36,6 @@ class File
      * Adds a new issue for this file.
      *
      * @param Issue $issue The new issue
-     * @return void
      */
     public function addIssue(Issue $issue): void
     {

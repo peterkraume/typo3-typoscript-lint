@@ -20,25 +20,14 @@ use Symfony\Component\Yaml\Parser as YamlParser;
 class YamlConfigurationLoader extends FileLoader
 {
 
-    /** @var YamlParser */
-    private $yamlParser;
-
-    /** @var Filesystem */
-    private $filesystem;
-
     /**
      * Constructs a new YAML-based configuration loader.
      *
      * @param FileLocatorInterface $locator    The file locator.
-     * @param YamlParser           $yamlParser The YAML parser.
-     * @param Filesystem           $filesystem A filesystem interface.
      */
-    public function __construct(FileLocatorInterface $locator, YamlParser $yamlParser, Filesystem $filesystem)
+    public function __construct(FileLocatorInterface $locator, private YamlParser $yamlParser, private Filesystem $filesystem)
     {
         parent::__construct($locator);
-
-        $this->yamlParser = $yamlParser;
-        $this->filesystem = $filesystem;
     }
 
     /**
@@ -46,7 +35,6 @@ class YamlConfigurationLoader extends FileLoader
      *
      * @param mixed  $resource The resource
      * @param string $type     The resource type
-     * @return array
      *
      * @psalm-suppress MethodSignatureMismatch
      */
@@ -58,7 +46,7 @@ class YamlConfigurationLoader extends FileLoader
             $file = $this->filesystem->openFile($path);
 
             return $this->yamlParser->parse($file->getContents());
-        } catch (FileLocatorFileNotFoundException $error) {
+        } catch (FileLocatorFileNotFoundException) {
             return [];
         }
     }

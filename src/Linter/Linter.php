@@ -16,29 +16,10 @@ use Helmich\TypoScriptParser\Tokenizer\TokenizerInterface;
 class Linter implements LinterInterface
 {
 
-    /** @var TokenizerInterface */
-    private $tokenizer;
-
-    /** @var ParserInterface */
-    private $parser;
-
-    /** @var SniffLocator */
-    private $sniffLocator;
-
-    public function __construct(TokenizerInterface $tokenizer, ParserInterface $parser, SniffLocator $sniffLocator)
+    public function __construct(private TokenizerInterface $tokenizer, private ParserInterface $parser, private SniffLocator $sniffLocator)
     {
-        $this->tokenizer    = $tokenizer;
-        $this->parser       = $parser;
-        $this->sniffLocator = $sniffLocator;
     }
 
-    /**
-     * @param string                $filename
-     * @param Report                $report
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
-     */
     public function lintFile(string $filename, Report $report, LinterConfiguration $configuration, LinterLoggerInterface $logger): File
     {
         $file = new File($filename);
@@ -64,10 +45,6 @@ class Linter implements LinterInterface
 
     /**
      * @param TokenInterface[]      $tokens
-     * @param File                  $file
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
      */
     private function lintTokenStream(
         array $tokens,
@@ -92,10 +69,6 @@ class Linter implements LinterInterface
 
     /**
      * @param Statement[]           $statements
-     * @param File                  $file
-     * @param LinterConfiguration   $configuration
-     * @param LinterLoggerInterface $logger
-     * @return File
      */
     private function lintSyntaxTree(
         array $statements,

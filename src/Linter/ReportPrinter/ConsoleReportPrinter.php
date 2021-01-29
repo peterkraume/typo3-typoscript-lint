@@ -18,24 +18,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class ConsoleReportPrinter implements Printer
 {
 
-    /** @var OutputInterface */
-    private $output;
-
     /**
      * Constructs a new console report printer.
-     *
-     * @param OutputInterface $output The output stream to write on.
      */
-    public function __construct(OutputInterface $output)
+    public function __construct(private OutputInterface $output)
     {
-        $this->output = $output;
     }
 
     /**
      * Writes a report in human-readable table form.
      *
      * @param Report $report The report to print.
-     * @return void
      */
     public function writeReport(Report $report): void
     {

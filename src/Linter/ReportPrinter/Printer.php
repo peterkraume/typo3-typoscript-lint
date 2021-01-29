@@ -14,9 +14,6 @@ interface Printer
 
     /**
      * Writes a report.
-     *
-     * @param Report $report
-     * @return void
      */
     public function writeReport(Report $report): void;
 }

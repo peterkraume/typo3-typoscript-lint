@@ -21,24 +21,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class CheckstyleReportPrinter implements Printer
 {
 
-    /** @var OutputInterface */
-    private $output;
-
     /**
      * Constructs a new checkstyle report printer.
-     *
-     * @param OutputInterface $output Output stream to write on. Might be STDOUT or a file.
      */
-    public function __construct(OutputInterface $output)
+    public function __construct(private OutputInterface $output)
     {
-        $this->output = $output;
     }
 
     /**
      * Writes a report in checkstyle XML format.
      *
      * @param Report $report The report to print.
-     * @return void
      */
     public function writeReport(Report $report): void
     {

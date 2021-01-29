@@ -3,12 +3,8 @@ namespace Helmich\TypoScriptLint\Util;
 
 class CallbackFinderObserver implements FinderObserver
 {
-    /** @var callable */
-    private $fn;
-
-    public function __construct(callable $fn)
+    public function __construct(private callable $fn)
     {
-        $this->fn = $fn;
     }
 
     public function onEntryNotFound(string $fileOrDirectory): void

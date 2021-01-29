@@ -10,9 +10,6 @@ interface TokenStreamSniffInterface extends SniffInterface
 
     /**
      * @param TokenInterface[]    $tokens
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $tokens, File $file, LinterConfiguration $configuration): void;
 }

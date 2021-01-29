@@ -18,24 +18,17 @@ use Symfony\Component\Console\Output\OutputInterface;
 class GccReportPrinter implements Printer
 {
 
-    /** @var OutputInterface */
-    private $output;
-
     /**
      * Constructs a new GCC report printer.
-     *
-     * @param OutputInterface $output Output stream to write on. Might be STDOUT or a file.
      */
-    public function __construct(OutputInterface $output)
+    public function __construct(private OutputInterface $output)
     {
-        $this->output = $output;
     }
 
     /**
      * Writes a report in GCC format.
      *
      * @param Report $report The report to print.
-     * @return void
      */
     public function writeReport(Report $report): void
     {

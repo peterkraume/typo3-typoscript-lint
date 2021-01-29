@@ -13,12 +13,8 @@ class Application extends SymfonyApplication
     public const APP_NAME = 'typoscript-lint';
     public const APP_VERSION = 'dev';
 
-    /** @var Container */
-    private $container;
-
-    public function __construct(Container $container)
+    public function __construct(private Container $container)
     {
-        $this->container = $container;
         parent::__construct(static::APP_NAME, static::APP_VERSION);
     }
 

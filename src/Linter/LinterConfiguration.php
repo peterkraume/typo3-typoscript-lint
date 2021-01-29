@@ -51,9 +51,6 @@ class LinterConfiguration implements ConfigurationInterface
         return $this->configuration['excludePatterns'] ?: [];
     }
 
-    /**
-     * @return array
-     */
     public function getSniffConfigurations(): array
     {
         $sniffs = [];

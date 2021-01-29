@@ -21,7 +21,6 @@ class RepeatingRValueSniff implements TokenStreamSniffInterface
     private $valueLengthThreshold = 8;
 
     /**
-     * @param array $parameters
      * @psalm-param array{allowedRightValues: ?string[], valueLengthThreshold: ?int} $parameters
      * @psalm-suppress MoreSpecificImplementedParamType
      */
@@ -38,9 +37,6 @@ class RepeatingRValueSniff implements TokenStreamSniffInterface
 
     /**
      * @param TokenInterface[]    $tokens
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $tokens, File $file, LinterConfiguration $configuration): void
     {

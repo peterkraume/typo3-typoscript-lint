@@ -17,22 +17,11 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 class ConfigurationLocator
 {
 
-    /** @var LoaderInterface */
-    private $loader;
-
-    /** @var Processor */
-    private $processor;
-
     /**
      * Constructs a new configuration locator.
-     *
-     * @param LoaderInterface $loader    A configuration loader.
-     * @param Processor       $processor A configuration processor.
      */
-    public function __construct(LoaderInterface $loader, Processor $processor)
+    public function __construct(private LoaderInterface $loader, private Processor $processor)
     {
-        $this->loader = $loader;
-        $this->processor = $processor;
     }
 
     /**

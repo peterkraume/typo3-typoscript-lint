@@ -20,16 +20,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class MinimalConsoleLogger implements LinterLoggerInterface
 {
-    /** @var Printer */
-    private $printer;
-
-    /** @var OutputInterface */
-    private $output;
-
-    public function __construct(Printer $printer, OutputInterface $output)
+    public function __construct(private Printer $printer, private OutputInterface $output)
     {
-        $this->printer = $printer;
-        $this->output = $output;
     }
 
     public function notifyFileNotFound(string $file): void

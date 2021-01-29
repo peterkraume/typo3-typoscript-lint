@@ -24,16 +24,8 @@ use Symfony\Component\Console\Output\OutputInterface;
  */
 class VerboseConsoleLogger implements LinterLoggerInterface
 {
-    /** @var OutputInterface */
-    private $output;
-
-    /** @var Printer */
-    private $printer;
-
-    public function __construct(Printer $printer, OutputInterface $output)
+    public function __construct(private Printer $printer, private OutputInterface $output)
     {
-        $this->output = $output;
-        $this->printer = $printer;
     }
 
     public function notifyFileNotFound(string $file): void

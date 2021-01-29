@@ -20,21 +20,6 @@ class Issue
     const SEVERITY_WARNING = "warning";
     const SEVERITY_ERROR = "error";
 
-    /** @var int|null */
-    private $line;
-
-    /** @var int|null */
-    private $column;
-
-    /** @var string */
-    private $message;
-
-    /** @var string */
-    private $severity;
-
-    /** @var string */
-    private $source;
-
     /**
      * Creates a new warning from a parse error.
      *
@@ -71,20 +56,9 @@ class Issue
 
     /**
      * Constructs a new warning.
-     *
-     * @param int|null $line     The original source line the warning belongs to.
-     * @param int|null $column   The source column.
-     * @param string   $message  The warning message.
-     * @param string   $severity The warning severity (see Issue::SEVERITY_* constants).
-     * @param string   $source   An arbitrary identifier for the generator of this warning.
      */
-    public function __construct(?int $line, ?int $column, string $message, string $severity, string $source)
+    public function __construct(private ?int $line, private ?int $column, private string $message, private string $severity, private string $source)
     {
-        $this->line     = $line;
-        $this->column   = $column;
-        $this->message  = $message;
-        $this->severity = $severity;
-        $this->source   = $source;
     }
 
     /**

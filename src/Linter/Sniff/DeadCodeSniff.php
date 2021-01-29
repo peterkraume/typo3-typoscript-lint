@@ -13,18 +13,12 @@ class DeadCodeSniff implements TokenStreamSniffInterface
 
     const ANNOTATION_COMMENT = '/^\s*([a-z0-9]+=(.*?))(;\s*[a-z0-9]+=(.*?))*\s*$/';
 
-    /**
-     * @param array $parameters
-     */
     public function __construct(array $parameters)
     {
     }
 
     /**
      * @param TokenInterface[]    $tokens
-     * @param File                $file
-     * @param LinterConfiguration $configuration
-     * @return void
      */
     public function sniff(array $tokens, File $file, LinterConfiguration $configuration): void
     {
@@ -50,7 +44,7 @@ class DeadCodeSniff implements TokenStreamSniffInterface
                         Issue::SEVERITY_INFO,
                         __CLASS__
                     ));
-                } catch (\Exception $e) {
+                } catch (\Exception) {
                     // pass
                 }
             }
